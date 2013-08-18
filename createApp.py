@@ -1,7 +1,7 @@
 import os
 import urllib
 import json
-import collections
+import subprocess
 
 perms = 0o777
 name = raw_input("Please enter the name of the project:\n")
@@ -65,3 +65,10 @@ for index, item in enumerate(scripts):
     print "Downloading " + item + "..."
     urllib.urlretrieve(item, "scripts/" + ext)
     print "OK!"
+
+print "Running 'git init'..."
+try:
+    subprocess.call(["git", "init"])
+    print "OK!"
+except OSError:
+    print "Git init failed, please make sure that you have git added to your PATH variable..."
