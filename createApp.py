@@ -28,7 +28,7 @@ settings = open("config.json")
 print "OK!"
 print "Reading JSON..."
 config = json.loads(settings.read())
-scripts = config["scripts"]
+scripts = config["scripts"] if hasattr(config, "scripts") else ["http://code.jquery.com/jquery-1.10.2.min.js"]
 print "OK!"
 
 print "Creating project structure..."
