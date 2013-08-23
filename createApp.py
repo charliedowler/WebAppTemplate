@@ -49,7 +49,8 @@ for index, item in enumerate(scripts):
     ext = item.split("/")[-1]
     indexContent += "\n\t\t<script src='scripts/" + ext + "'></script>"
 
-indexContent += "\n\t</head>" \
+indexContent += "\n\t\t<script src='scripts/app.js'></script>" \
+                "\n\t</head>" \
                 "\n\t<body>" \
                 "\n\t\t<h1>Hello World!</h1>" \
                 "\n\t</body>" \
@@ -58,6 +59,12 @@ index = "index.html"
 file = open(index, 'w')
 file.write(indexContent)
 file.close()
+
+appFilename = "app.js"
+app = open('scripts/'+appFilename, 'w')
+app.write("console.log('App Started');")
+app.close()
+
 print "OK!"
 
 for index, item in enumerate(scripts):
